@@ -10,13 +10,21 @@ https://app.vagrantup.com/mcandre/boxes/vagrant-openwrt-make
 $ cd test
 $ vagrant up
 $ vagrant ssh -c "cd /vagrant && make"
-...
+Works!
 ```
 
 # RUNTIME REQUIREMENTS
 
 * [Vagrant](https://www.vagrantup.com)
 * The [VirtualBox](https://www.virtualbox.org) hypervisor provider
+
+## Synced folders note
+
+This box requires an additional explicit chown to fix guest file permissions:
+
+```console
+$ vagrant ssh -c "sudo find /vagrant -exec chown vagrant:vagrant {} +"
+```
 
 ## Recommended
 
